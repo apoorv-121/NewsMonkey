@@ -1,19 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Newsitem extends Component {
-  render() {
-    let { title, description, imageUrl, newsUrl, author, date, source } =
-      this.props;
+const Newsitem =(props)=> {
+  
+    let { title, description, imageUrl, newsUrl, author, date, source } = props;
     let defaultUrl = "https://i.stack.imgur.com/l60Hf.png";
     return (
       <div className="my-3">
         <div className="card">
+        <div style={{
+          display:"flex",
+          justifyContent:"flex-end",
+          position:"absolute",
+          right:"0",
+        }}>
+
           <span
-            className="position-absolute top-0  translate-middle badge rounded-pill bg-danger"
-            style={{ left: "90%", zIndex: "1" }}
+            className="badge rounded-pill bg-danger"
+            
           >
             {source}
           </span>
+        </div>
           <img
             src={imageUrl ? imageUrl : defaultUrl}
             className="card-img-top"
@@ -43,7 +50,7 @@ export class Newsitem extends Component {
         </div>
       </div>
     );
-  }
+  
 }
 
 export default Newsitem;
